@@ -15,7 +15,7 @@ import com.kproject.cedronews.presentation.screens.components.CenterTopBar
 @Composable
 fun HomeScreen(
     homeViewModel: HomeViewModel,
-    onNavigateToNewsReaderScreen: () -> Unit
+    onNavigateToNewsReaderScreen: (newsId: Int) -> Unit
 ) {
     val uiState by homeViewModel.uiState.collectAsStateWithLifecycle()
     HomeScreenContent(
@@ -30,7 +30,7 @@ fun HomeScreen(
 private fun HomeScreenContent(
     uiState: HomeUiState,
     onUiEvent: (HomeUiEvent) -> Unit,
-    onNavigateToNewsReaderScreen: () -> Unit,
+    onNavigateToNewsReaderScreen: (newsId: Int) -> Unit,
 ) {
     val themeIconResId = if (uiState.isDarkMode) {
         R.drawable.outline_light_mode_24
@@ -68,7 +68,7 @@ private fun MainContent(
     modifier: Modifier = Modifier,
     uiState: HomeUiState,
     onUiEvent: (HomeUiEvent) -> Unit,
-    onNavigateToNewsReaderScreen: () -> Unit,
+    onNavigateToNewsReaderScreen: (newsId: Int) -> Unit,
 ) {
 
 }
