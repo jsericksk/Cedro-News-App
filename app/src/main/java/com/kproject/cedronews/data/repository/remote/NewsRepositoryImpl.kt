@@ -1,4 +1,4 @@
-package com.kproject.cedronews.data.repository
+package com.kproject.cedronews.data.repository.remote
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig

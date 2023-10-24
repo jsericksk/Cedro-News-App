@@ -1,8 +1,8 @@
 package com.kproject.cedronews.di
 
 import com.kproject.cedronews.data.remote.apiservice.NewsApiService
-import com.kproject.cedronews.data.repository.NewsRepository
-import com.kproject.cedronews.data.repository.NewsRepositoryImpl
+import com.kproject.cedronews.data.repository.remote.NewsRepository
+import com.kproject.cedronews.data.repository.remote.NewsRepositoryImpl
 import com.kproject.cedronews.presentation.screens.home.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
