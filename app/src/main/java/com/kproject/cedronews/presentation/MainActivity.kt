@@ -6,27 +6,29 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.kproject.cedronews.R
-import com.kproject.cedronews.presentation.screens.components.SimpleAlertDialog
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.kproject.cedronews.presentation.screens.home.HomeScreen
 import com.kproject.cedronews.presentation.screens.home.HomeViewModel
 import com.kproject.cedronews.presentation.theme.CedroNewsTheme
-import org.koin.androidx.compose.koinViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
-
+    private val homeViewModel: HomeViewModel by viewModel()
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            CedroNewsTheme {
+            val uiState by homeViewModel.uiState.collectAsStateWithLifecycle()
+            CedroNewsTheme(isDarkMode = uiState.isDarkMode) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    HomeScreen(homeViewModel = homeViewModel) {
+                        
+                    }
                 }
             }
         }

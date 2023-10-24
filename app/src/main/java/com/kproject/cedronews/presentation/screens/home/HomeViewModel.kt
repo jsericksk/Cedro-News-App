@@ -50,4 +50,20 @@ class HomeViewModel(
                 }
         }
     }
+
+    fun onUiEvent(event: HomeUiEvent) {
+        when (event) {
+            HomeUiEvent.ChangeAppTheme -> {
+                val isDarkMode = uiState.value.isDarkMode.not()
+                preferenceRepository.savePreference(
+                    key = PrefsConstants.DarkMode,
+                    value = isDarkMode
+                )
+                _uiState.update { it.copy(isDarkMode = isDarkMode) }
+            }
+            HomeUiEvent.KeepSplashOnScreenChanged -> {
+                _uiState.update { it.copy(keepSplashOnScreen = false) }
+            }
+        }
+    }
 }
