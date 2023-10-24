@@ -1,6 +1,8 @@
 package com.kproject.cedronews.di
 
 import com.kproject.cedronews.data.remote.apiservice.NewsApiService
+import com.kproject.cedronews.data.repository.prefs.PreferenceRepository
+import com.kproject.cedronews.data.repository.prefs.PreferenceRepositoryImpl
 import com.kproject.cedronews.data.repository.remote.NewsRepository
 import com.kproject.cedronews.data.repository.remote.NewsRepositoryImpl
 import com.kproject.cedronews.presentation.screens.home.HomeViewModel
@@ -15,6 +17,7 @@ val appModule = module {
 
 val repositoryModule = module {
     single<NewsRepository> { NewsRepositoryImpl(newsApiService = get()) }
+    single<PreferenceRepository> { PreferenceRepositoryImpl(context = get()) }
 }
 
 val networkModule = module {
