@@ -1,4 +1,10 @@
 package com.kproject.cedronews.presentation.screens.home
 
-class HomeScreen {
+import androidx.compose.runtime.Composable
+
+@Composable
+private fun HomeScreen(
+    onNavigateToNewsReaderScreen: () -> Unit
+) {
+
 }
