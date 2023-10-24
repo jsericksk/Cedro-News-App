@@ -12,7 +12,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 val appModule = module {
-    viewModel { HomeViewModel(newsRepository = get()) }
+    viewModel {
+        HomeViewModel(
+            newsRepository = get(),
+            preferenceRepository = get()
+        )
+    }
 }
 
 val repositoryModule = module {
