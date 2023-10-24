@@ -3,4 +3,9 @@
 
     <string name="button_ok">OK</string>
     <string name="button_cancel">Cancelar</string>
+
+    <string name="button_retry">Tentar novamente</string>
+    <string name="error_loading_news">Houve um erro ao tentar obter as notícias.</string>
+    <string name="error_loading_more_news">Houve um erro ao tentar carregar as outras notícias.</string>
+
 </resources>

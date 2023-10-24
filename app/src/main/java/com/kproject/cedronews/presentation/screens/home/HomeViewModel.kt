@@ -42,7 +42,7 @@ class HomeViewModel(
         }
     }
 
-    fun getAllNews() {
+    private fun getAllNews() {
         viewModelScope.launch {
             newsRepository.getAllNews().cachedIn(viewModelScope)
                 .collect { pagingDataModel ->
