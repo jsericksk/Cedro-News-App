@@ -137,7 +137,7 @@ private fun NewsContent(
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
 
-            Spacer(Modifier.height(6.dp))
+            Spacer(Modifier.height(8.dp))
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -156,7 +156,7 @@ private fun NewsContent(
             }
 
             if (newsContent.imageUrl.isNotBlank()) {
-                Spacer(Modifier.height(10.dp))
+                Spacer(Modifier.height(12.dp))
                 CustomImage(
                     imageModel = newsContent.imageUrl,
                     modifier = Modifier
@@ -167,7 +167,7 @@ private fun NewsContent(
             }
 
             if (newsContent.subtitle.isNotBlank()) {
-                Spacer(Modifier.height(6.dp))
+                Spacer(Modifier.height(10.dp))
                 Text(
                     text = newsContent.subtitle,
                     fontSize = 16.sp,
@@ -176,7 +176,7 @@ private fun NewsContent(
                 )
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(18.dp))
 
             Text(
                 text = newsContent.formattedContent,
