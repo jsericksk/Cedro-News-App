@@ -96,6 +96,9 @@ dependencies {
     // Paging3 Compose
     implementation("androidx.paging:paging-compose:3.2.1")
 
+    // Splash Screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
     // Tests
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     testImplementation("junit:junit:4.13.2")

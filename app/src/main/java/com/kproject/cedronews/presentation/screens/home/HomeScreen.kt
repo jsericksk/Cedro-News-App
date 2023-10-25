@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -53,6 +54,10 @@ fun HomeScreen(
         newsPagingItems = newsPagingItems,
         onNavigateToNewsReaderScreen = onNavigateToNewsReaderScreen
     )
+
+    SideEffect {
+        homeViewModel.onUiEvent(HomeUiEvent.KeepSplashOnScreenChanged)
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
