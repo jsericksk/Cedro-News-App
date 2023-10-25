@@ -88,8 +88,11 @@ dependencies {
     implementation("io.insert-koin:koin-androidx-compose:$koinVersion")
     implementation("io.insert-koin:koin-android:$koinVersion")
 
-    // Landscapist Coil
-    implementation("com.github.skydoves:landscapist-coil:2.2.10")
+    // Landscapist
+    val landscapistVersion = "2.2.10"
+    implementation("com.github.skydoves:landscapist-bom:$landscapistVersion")
+    implementation("com.github.skydoves:landscapist-coil")
+    implementation("com.github.skydoves:landscapist-placeholder")
 
     // Gson
     implementation("com.google.code.gson:gson:2.10")

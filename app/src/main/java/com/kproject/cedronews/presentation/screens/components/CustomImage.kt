@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import com.kproject.cedronews.R
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.coil.CoilImage
+import com.skydoves.landscapist.components.rememberImageComponent
+import com.skydoves.landscapist.placeholder.shimmer.ShimmerPlugin
 
 @Composable
 fun CustomImage(
@@ -26,6 +29,12 @@ fun CustomImage(
 ) {
     CoilImage(
         imageModel = { imageModel },
+        component = rememberImageComponent {
+            +ShimmerPlugin(
+                baseColor = MaterialTheme.colorScheme.background,
+                highlightColor = MaterialTheme.colorScheme.secondary
+            )
+        },
         failure = {
             FailureIndicator()
         },
