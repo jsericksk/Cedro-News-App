@@ -3,6 +3,7 @@ package com.kproject.cedronews.presentation.screens.home
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -38,6 +39,7 @@ import com.kproject.cedronews.domain.model.fakeNewsList
 import com.kproject.cedronews.presentation.screens.components.CenterTopBar
 import com.kproject.cedronews.presentation.screens.components.CustomImage
 import com.kproject.cedronews.presentation.screens.components.EmptyListInfo
+import com.kproject.cedronews.presentation.screens.components.shimmerEffect
 import com.kproject.cedronews.presentation.theme.CompletePreview
 import com.kproject.cedronews.presentation.theme.PreviewTheme
 
@@ -110,17 +112,8 @@ private fun MainContent(
     LazyColumn(modifier = modifier) {
         when (newsPagingItems.loadState.refresh) {
             is LoadState.Loading -> {
-                item {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center,
-                        modifier = Modifier.fillParentMaxSize(),
-                    ) {
-                        CircularProgressIndicator(
-                            color = MaterialTheme.colorScheme.secondary,
-                            modifier = Modifier.size(80.dp)
-                        )
-                    }
+                items(15) {
+                    NewsListItemWithShimmerEffect()
                 }
             }
             is LoadState.NotLoading -> {
@@ -227,21 +220,24 @@ private fun NewsListItem(
             .clickable {
                 onClick.invoke()
             }
+            .fillMaxWidth()
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(14.dp),
+            modifier = Modifier
+                .padding(14.dp)
+                .fillMaxWidth(),
         ) {
             CustomImage(
                 imageModel = news.imageUrl,
                 modifier = Modifier
-                    .size(100.dp)
+                    .size(110.dp)
                     .clip(MaterialTheme.shapes.small)
             )
 
             Spacer(Modifier.width(12.dp))
 
-            Column {
+            Column(modifier = Modifier.fillMaxWidth()) {
                 Text(
                     text = news.title,
                     color = MaterialTheme.colorScheme.onSurface,
@@ -283,6 +279,81 @@ private fun NewsListItem(
                     modifier = Modifier.align(Alignment.End)
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun NewsListItemWithShimmerEffect(
+    modifier: Modifier = Modifier
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+    ) {
+        // Imagem
+        Box(
+            modifier = Modifier
+                .size(110.dp)
+                .clip(MaterialTheme.shapes.small)
+                .shimmerEffect()
+        )
+
+        Spacer(Modifier.width(12.dp))
+
+        Column {
+            val itemHeight = 20.dp
+            // Título
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(itemHeight)
+                    .padding(4.dp)
+                    .shimmerEffect()
+            )
+            Spacer(Modifier.height(4.dp))
+            // Título
+            Box(
+                modifier = Modifier
+                    .size(width = 120.dp, height = itemHeight)
+                    .height(itemHeight)
+                    .padding(4.dp)
+                    .shimmerEffect()
+            )
+
+            Spacer(Modifier.height(4.dp))
+
+            Row {
+                // Categoria
+                Box(
+                    modifier = Modifier
+                        .size(width = 70.dp, height = itemHeight)
+                        .padding(4.dp)
+                        .shimmerEffect()
+                )
+                Spacer(Modifier.height(6.dp))
+                // Data
+                Box(
+                    modifier = Modifier
+                        .size(width = 90.dp, height = itemHeight)
+                        .padding(4.dp)
+                        .shimmerEffect()
+                )
+            }
+
+            Spacer(Modifier.height(4.dp))
+
+            // Tempo decorrido
+            Box(
+                modifier = Modifier
+                    .size(width = 70.dp, height = itemHeight)
+                    .padding(4.dp)
+                    .align(Alignment.End)
+                    .shimmerEffect()
+            )
         }
     }
 }
