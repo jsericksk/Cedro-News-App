@@ -71,17 +71,8 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.activity:activity-compose")
 
-    val appCompatVersion =  "1.6.1"
-    implementation("androidx.appcompat:appcompat:$appCompatVersion")
-    implementation("androidx.appcompat:appcompat-resources:$appCompatVersion")
-
     // Navigation Compose
     implementation("androidx.navigation:navigation-compose:2.7.4")
-
-    // Accompanist Navigation Animation and SystemUI Controller
-    val accompanistVersion = "0.32.0"
-    implementation("com.google.accompanist:accompanist-permissions:$accompanistVersion")
-    implementation("com.google.accompanist:accompanist-pager-indicators:$accompanistVersion")
 
     // Koin
     val koinVersion = "3.4.0"
