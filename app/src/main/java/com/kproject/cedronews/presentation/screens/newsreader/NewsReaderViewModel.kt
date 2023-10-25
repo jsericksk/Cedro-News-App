@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.kproject.cedronews.commom.ResultState
 import com.kproject.cedronews.data.repository.remote.NewsRepository
 import com.kproject.cedronews.presentation.navigation.NewsIdKey
-import com.kproject.cedronews.presentation.screens.newsreader.model.fromModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -36,7 +35,7 @@ class NewsReaderViewModel(
                     is ResultState.Success -> {
                         result.result?.let { newsContentModel ->
                             _uiState.update {
-                                it.copy(dataState = ResultState.Success(newsContentModel.fromModel()))
+                                it.copy(dataState = ResultState.Success(newsContentModel))
                             }
                         }
                     }

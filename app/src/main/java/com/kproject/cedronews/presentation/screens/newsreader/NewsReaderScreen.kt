@@ -36,11 +36,11 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kproject.cedronews.R
 import com.kproject.cedronews.commom.ResultState
+import com.kproject.cedronews.domain.model.NewsContentModel
+import com.kproject.cedronews.domain.model.fakeNewsContent
 import com.kproject.cedronews.presentation.screens.components.CenterTopBar
 import com.kproject.cedronews.presentation.screens.components.CustomImage
 import com.kproject.cedronews.presentation.screens.components.EmptyListInfo
-import com.kproject.cedronews.presentation.screens.newsreader.model.NewsContent
-import com.kproject.cedronews.presentation.screens.newsreader.model.fakeNewsContent
 import com.kproject.cedronews.presentation.theme.CompletePreview
 import com.kproject.cedronews.presentation.theme.PreviewTheme
 import org.koin.androidx.compose.koinViewModel
@@ -120,7 +120,7 @@ private fun MainContent(
 @Composable
 private fun NewsContent(
     modifier: Modifier = Modifier,
-    newsContent: NewsContent
+    newsContent: NewsContentModel
 ) {
     SelectionContainer {
         Column(

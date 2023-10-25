@@ -31,11 +31,11 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.kproject.cedronews.R
+import com.kproject.cedronews.domain.model.NewsModel
+import com.kproject.cedronews.domain.model.fakeNewsList
 import com.kproject.cedronews.presentation.screens.components.CenterTopBar
 import com.kproject.cedronews.presentation.screens.components.CustomImage
 import com.kproject.cedronews.presentation.screens.components.EmptyListInfo
-import com.kproject.cedronews.presentation.screens.home.model.News
-import com.kproject.cedronews.presentation.screens.home.model.fakeNewsList
 import com.kproject.cedronews.presentation.theme.CompletePreview
 import com.kproject.cedronews.presentation.theme.PreviewTheme
 
@@ -59,7 +59,7 @@ fun HomeScreen(
 private fun HomeScreenContent(
     uiState: HomeUiState,
     onUiEvent: (HomeUiEvent) -> Unit,
-    newsPagingItems: LazyPagingItems<News>,
+    newsPagingItems: LazyPagingItems<NewsModel>,
     onNavigateToNewsReaderScreen: (newsId: Int) -> Unit,
 ) {
     val themeIconResId = if (uiState.isDarkMode) {
@@ -95,7 +95,7 @@ private fun HomeScreenContent(
 @Composable
 private fun MainContent(
     modifier: Modifier = Modifier,
-    newsPagingItems: LazyPagingItems<News>,
+    newsPagingItems: LazyPagingItems<NewsModel>,
     onNavigateToNewsReaderScreen: (newsId: Int) -> Unit,
 ) {
     LazyColumn(modifier = modifier) {
@@ -186,7 +186,7 @@ private fun MainContent(
 @Composable
 private fun NewsList(
     modifier: Modifier = Modifier,
-    newsList: List<News>,
+    newsList: List<NewsModel>,
     onNavigateToNewsReaderScreen: (newsId: Int) -> Unit,
 ) {
     LazyColumn(modifier = modifier) {
@@ -207,7 +207,7 @@ private fun NewsList(
 @Composable
 private fun NewsListItem(
     modifier: Modifier = Modifier,
-    news: News,
+    news: NewsModel,
     onClick: () -> Unit
 ) {
     Card(
