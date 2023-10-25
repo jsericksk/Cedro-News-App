@@ -7,7 +7,9 @@ data class NewsContentModel(
     val imageUrl: String,
     val content: String,
     val date: String
-)
+) {
+    val formattedContent = content.trimIndent().replace("\n \n \n \n", "\n\n")
+}
 
 val fakeNewsContent = NewsContentModel(
     id = 1,

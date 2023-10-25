@@ -179,7 +179,7 @@ private fun NewsContent(
             Spacer(Modifier.height(12.dp))
 
             Text(
-                text = newsContent.content,
+                text = newsContent.formattedContent,
                 fontSize = 16.sp
             )
         }
