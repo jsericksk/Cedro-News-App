@@ -13,7 +13,7 @@ android {
         applicationId = "com.kproject.cedronews"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
+        versionCode = 231025
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

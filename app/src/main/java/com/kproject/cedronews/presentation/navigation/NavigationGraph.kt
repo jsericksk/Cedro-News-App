@@ -21,9 +21,7 @@ fun NavigationGraph(homeViewModel: HomeViewModel) {
             HomeScreen(
                 homeViewModel = homeViewModel,
                 onNavigateToNewsReaderScreen = { newsId ->
-                    navController.navigate(
-                        Screen.NewsReaderScreen.createRoute(newsId)
-                    ) {
+                    navController.navigate(Screen.NewsReaderScreen.createRoute(newsId)) {
                         launchSingleTop = true
                     }
                 }
