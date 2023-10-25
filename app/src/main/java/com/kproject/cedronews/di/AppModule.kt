@@ -6,6 +6,8 @@ import com.kproject.cedronews.data.repository.prefs.PreferenceRepositoryImpl
 import com.kproject.cedronews.data.repository.remote.NewsRepository
 import com.kproject.cedronews.data.repository.remote.NewsRepositoryImpl
 import com.kproject.cedronews.presentation.screens.home.HomeViewModel
+import com.kproject.cedronews.presentation.screens.newsreader.NewsReaderScreen
+import com.kproject.cedronews.presentation.screens.newsreader.NewsReaderViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -16,6 +18,12 @@ val appModule = module {
         HomeViewModel(
             newsRepository = get(),
             preferenceRepository = get()
+        )
+    }
+    viewModel {
+        NewsReaderViewModel(
+            newsRepository = get(),
+            savedStateHandle = get()
         )
     }
 }
