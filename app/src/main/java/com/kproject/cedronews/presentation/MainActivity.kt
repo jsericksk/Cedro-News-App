@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kproject.cedronews.presentation.navigation.NavigationGraph
 import com.kproject.cedronews.presentation.screens.home.HomeViewModel
@@ -19,6 +20,9 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen().setKeepOnScreenCondition {
+            homeViewModel.uiState.value.keepSplashOnScreen
+        }
         setContent {
             val uiState by homeViewModel.uiState.collectAsStateWithLifecycle()
             CedroNewsTheme(isDarkMode = uiState.isDarkMode) {
