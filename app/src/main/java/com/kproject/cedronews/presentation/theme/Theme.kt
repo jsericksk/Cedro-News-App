@@ -14,7 +14,6 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
-import androidx.core.view.WindowCompat
 
 private val LightColorScheme = lightColorScheme(
     primary = md_theme_light_primary,
@@ -83,14 +82,13 @@ private val DarkColorScheme = darkColorScheme(
 @Composable
 fun CedroNewsTheme(
     isDarkMode: Boolean = true,
-    darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (isDarkMode) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
         isDarkMode -> DarkColorScheme
         else -> LightColorScheme
@@ -100,7 +98,6 @@ fun CedroNewsTheme(
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
 
@@ -117,7 +114,7 @@ fun PreviewTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    CedroNewsTheme(darkTheme = darkTheme) {
+    CedroNewsTheme(isDarkMode = darkTheme) {
         Surface(color = MaterialTheme.colorScheme.background) {
             content()
         }
