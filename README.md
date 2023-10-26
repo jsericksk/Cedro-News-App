@@ -18,6 +18,7 @@ Assim como a API, esse aplicativo não tem como finalidade ser de grande utilida
 ## Download APK
 
 Se estiver interessado em testar o app, você pode baixar o APK nas [releases](https://github.com/jsericksk/Cedro-News-App/releases).
+- **Observação:** Como o app usa a API que está hospedada numa instância free do Render, o servidor pode demorar alguns minutos para responder na primeira solicitação e causará uma mensagem de erro no app até que a API responda (geralmente após alguns segundos).
 
 ## :hammer_and_wrench: Bibliotecas utilizadas
 
