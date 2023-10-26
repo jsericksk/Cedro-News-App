@@ -175,7 +175,7 @@ private fun NewsContent(
             if (newsContent.subtitle.isNotBlank()) {
                 Spacer(Modifier.height(10.dp))
                 Text(
-                    text = newsContent.subtitle,
+                    text = newsContent.formattedSubtitle,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Medium,
                     fontStyle = FontStyle.Italic

@@ -8,6 +8,7 @@ data class NewsContentModel(
     val content: String,
     val date: String
 ) {
+    val formattedSubtitle = subtitle.trimEnd()
     val formattedContent = content.trimIndent().replace("\n \n \n \n", "\n\n")
 }
 
