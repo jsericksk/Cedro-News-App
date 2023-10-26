@@ -15,6 +15,10 @@ Assim como a API, esse aplicativo não tem como finalidade ser de grande utilida
 
 - Algumas notícias têm uma certa má formatação de texto (ex.: contém muita ou falta quebra de linha). Devido ao HTML da página, não consegui contornar isso nem na API, nem no app.
 
+## Download APK
+
+Se estiver interessado em testar o app, você pode baixar o APK nas [releases](https://github.com/jsericksk/Cedro-News-App/releases).
+
 ## :hammer_and_wrench: Bibliotecas utilizadas
 
 - [Retrofit](https://github.com/square/retrofit): Consumo de API.
